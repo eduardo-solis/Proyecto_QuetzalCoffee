@@ -1,0 +1,125 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+<!-- Carrusel -->
+<div class="mt-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/slider1.jpg" height="450px;" class="d-block w-100" alt="Slider1">
+            </div>
+            <div class="carousel-item">
+                <img src="../static/slider2.jpeg" height="450px;" class="d-block w-100" alt="Slider2">
+            </div>
+            <div class="carousel-item">
+                <img src="../static/slider3.jpg" height="450px;" class="d-block w-100" alt="Slider3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Contenido -->
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Historia de la empresa</h2>
+            <hr>
+
+            <p>
+                Quetzal Coffee tiene sus orígenes en el área del bajío, desde hace más de 6 
+                años, como un pequeño negocio familiar. Nace con la finalidad de brindar un 
+                espacio para recordar, conocer y probar bebidas tan especiales como cada uno 
+                de nuestros clientes.
+
+                <br><br>
+
+                Para Quetzal Coffee el café no es solo una bebida, es una manera de vivir cada 
+                uno de esos momentos memorables y llevándolos así generación tras 
+                generación.
+            </p>
+
+        </div>
+
+        <div class="col-md-4">
+            <img src="../static/historia.png" class=" img-fluid mx-auto d-block" alt="Historia">
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            
+            <h2>Misión</h2>
+            <hr>
+
+            <p>
+                Efectuar y superar las expectativas de nuestros clientes, ofreciendo bebidas de 
+                calidad distintiva, alcanzando nuevos estándares.
+            </p>
+        </div>
+        <div class="col">
+            <h2>Visión</h2>
+            <hr>
+
+            <p>
+                Estar entre las empresas favoritas de nuestros clientes a nivel local, creando una 
+                legión de personas conectadas por la misma meta.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-5">
+        <h2 class="text-center">Valores</h2>
+        <hr>
+        <br>
+
+        <div class="col text-center">
+            <h5>Confianza</h5>
+            <p>
+                Inspirar seguridad de que somos la mejor opción que el cliente 
+                necesita para disfrutar esos pequeños momentos.
+            </p>
+            <img src="../static/confianza.png" class="mt-4 img-fluid mx-auto d-block" alt="Confianza">
+        </div>
+
+        <div class="col text-center">
+            <h5>Trabajo en equipo</h5>
+            <p>
+                Basándose en la mejor coordinación entre cada proceso 
+                ofreciendo un servicio.
+            </p>
+            <img src="../static/teamwork.png" class="mt-4 img-fluid mx-auto d-block" alt="Trabajo en equipo">
+        </div>
+
+        <div class="col text-center">
+            <h5>Servicio</h5>
+            <p>
+                Trabajar día con día dando la mayor importancia hasta en el más
+                mínimo detalle de nuestros clientes.
+            </p>
+            <img src="../static/servicio.png" class="mt-4 img-fluid mx-auto d-block" alt="Servicio">
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

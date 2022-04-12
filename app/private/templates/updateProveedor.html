@@ -1,0 +1,89 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+
+<div class="container-fluid mt-3 mb-5">
+    <div class="text-center mb-3">
+        <h2>Gestión de proveedor</h2>
+    </div>
+
+    <div class="row">
+        
+        {% if current_user.tipoUsuario !=2 %}
+        <!-- Formulario -->
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Datos del proveedor</h5>
+                </div>
+                <div class="card-body">
+                    <form action="" name="actualizacion_proveedor" method="POST" novalidate>
+                        <!-- Token de protección CSRF -->
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" value="{{u.nombre}}" class="form-control" disabled>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="calle">RFC</label>
+                                <input class="form-control" disabled class="form-control" type="text" name="calle" id="calle" value="{{u.rfc}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="numero">Razón Social</label>
+                                <input class="form-control" disabled type="text" name="numero" id="numero" value="{{u.razonSocial}}">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="calle">Calle</label>
+                                <input class="form-control" required type="text" name="calle" id="calle" value="{{u.calle}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="numero">Número</label>
+                                <input class="form-control" required type="number" name="numero" id="numero" value="{{u.numero}}">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="colonia">Colonia</label>
+                                <input class="form-control" type="text" required name="colonia" id="colonia" value="{{u.colonia}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="codigoPostal">Codigo Postal</label>
+                                <input class="form-control" type="text" required name="codigoPostal" minlength="5" maxlength="5" id="codigoPostal" value="{{u.codigoPostal}}">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label" for="telefono">Telefono</label>
+                            <input class="form-control" type="text" name="telefono" required minlength="10" maxlength="10" id="telefono" value="{{u.telefono}}">
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="correo">Correo</label>
+                                <input class="form-control" required type="email" name="correo" id="correo" value="{{u.email}}">
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col"> <button class="btn btn-success" type="submit">Guardar</button> </div>
+                                <div class="col"> <button type="reset" class="btn btn-danger">Limpiar</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+</div>
+
+{% endblock %}

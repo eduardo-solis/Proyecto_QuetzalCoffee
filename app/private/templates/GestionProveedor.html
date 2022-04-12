@@ -1,0 +1,111 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+
+<div class="container-fluid mt-3 mb-5">
+    <div class="text-center mb-3">
+        <h2>Gestión de proveedor</h2>
+    </div>
+
+    <div class="row">
+        
+        {% if current_user.tipoUsuario !=2 %}
+        <!-- Formulario -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Datos del proveedor</h5>
+                </div>
+                <div class="card-body">
+                    <form action="" name="registro_proveedor" method="POST" novalidate>
+                        <!-- Token de protección CSRF -->
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        {{render_field(form.nombre, class='form-control')}}
+
+                        <div class="row">
+                            <div class="col">
+                                {{render_field(form.rfc, class='form-control')}}
+                            </div>
+                            <div class="col">
+                                {{render_field(form.razonSocial, class='form-control')}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">{{render_field(form.calle, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.numero, class='form-control')}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">{{render_field(form.colonia, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.codigoPostal, class='form-control')}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">{{render_field(form.telefono, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.correo, class='form-control')}}</div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                                <div class="col"> <button type="reset" class="btn btn-danger">Limpiar</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Tabla -->
+
+        <div class="col table-responsive">
+            <div class="mb-3">
+                <input type="text" id="filtroProveedor" placeholder="Buscar" class="form-control" />
+            </div>
+
+            <table class="table" id="tblProveedor">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>RFC</th>
+                    <th>Razón Social</th>
+                    <th>Calle</th>
+                    <th>Número</th>
+                    <th>Colonia</th>
+                    <th>CP</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                </tr>
+                {% for item in lista %}
+                <tr>
+                    {% if current_user.tipoUsuario != 2 %}
+                    <td>
+                        <a class="link-primary" href="{{ url_for('private.update_proveedor', id = item.idProveedor) }}">Actualizar</a>
+                        <br>
+                        <a class="link-danger" href="{{ url_for('private.deleteProveedor', id = item.idProveedor) }}">Eliminar</a>
+                    </td>
+                    {% endif %}
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.rfc}}</td>
+                    <td>{{item.razonSocial}}</td>
+                    <td>{{item.calle}}</td>
+                    <td>{{item.numero}}</td>
+                    <td>{{item.colonia}}</td>
+                    <td>{{item.codigoPostal}}</td>
+                    <td>{{item.telefono}}</td>
+                    <td>{{item.email}}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

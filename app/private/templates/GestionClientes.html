@@ -1,0 +1,115 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+
+<div class="container-fluid mt-3 mb-5">
+
+    <div class="text-center mb-3">
+        <h2>Gestión de clientes</h2>
+    </div>
+
+    <div class="row">
+
+        <!-- Formulario -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Datos del cliente</h5>
+                </div>
+                <div class="card-body">
+                    <form action="" name="registro_cliente" method="POST" novalidate>
+                        <!-- Token de protección CSRF -->
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        {{render_field(form.nombre, class='form-control')}}
+
+                        <div class="row">
+                            <div class="col">
+                                {{render_field(form.primerApellido, class='form-control')}}
+                            </div>
+                            <div class="col">
+                                {{render_field(form.segundoApellido, class='form-control')}}
+                            </div>
+                        </div>
+
+                        <div class="col">{{render_field(form.fechaNac, class='form-control')}}</div>
+
+                        <div class="row">
+                            <div class="col">{{render_field(form.calle, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.numero, class='form-control')}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">{{render_field(form.colonia, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.codigoPostal, class='form-control')}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">{{render_field(form.telefono, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.correo, class='form-control')}}</div>
+                            <div class="col">{{render_field(form.password, class='form-control')}}</div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                                <div class="col"> <button type="reset" class="btn btn-danger">Limpiar</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Tabla -->
+
+        <div class="col-8 table-responsive">
+            <div class="mb-3">
+                <input type="text" id="filtroCliente" placeholder="Buscar" class="form-control" />
+            </div>
+            <table class="table" id="tblCliente">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Calle</th>
+                    <th>Número</th>
+                    <th>Colonia</th>
+                    <th>CP</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                </tr>
+                <tbody>
+                    {% for item in lista %}
+                
+                    <tr>
+                        <td>
+                            <a class="link-danger" href="{{ url_for('private.delete_cliente', id = item['id']) }}">Eliminar</a>
+                        </td>
+                        <td>{{item['name']}}</td>
+                        <td>{{item['primerApellido']}}</td>
+                        <td>{{item['segundoApellido']}}</td>
+                        <td>{{item['fechaNac']}}</td>
+                        <td>{{item['calle']}}</td>
+                        <td>{{item['numero']}}</td>
+                        <td>{{item['colonia']}}</td>
+                        <td>{{item['codigoPostal']}}</td>
+                        <td>{{item['telefono']}}</td>
+                        <td>{{item['correo']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

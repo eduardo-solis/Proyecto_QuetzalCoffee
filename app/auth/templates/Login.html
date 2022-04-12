@@ -1,0 +1,55 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+{% from '_macros.html' import render_field %}
+
+<div class="container" style="margin-top: 80px;">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-danger">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="row">
+        <div class="col"></div>
+
+        <div class="col">
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="../../static/user.png" class="img-fluid mx-auto d-block" width="200px;" alt="Usuario" />
+                </div>
+                <div class="card-body">
+
+                    <form action="" name="login" method="POST" novalidate>
+                        <!-- Token de protección CSRF -->
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                        <div>
+                            {{render_field(form.correo, class='form-control')}}
+                            <br>
+                            {{render_field(form.password, class='form-control')}}
+                        </div>
+                        <br>
+                        {{form.iniciar(class='btn btn-success form-control')}}
+
+                    </form>
+
+
+                </div>
+                <div class="card-footer">
+                    <p class="card-text text-center"><a class="link-dark" href="/auth/register">Registrate!</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col"></div>
+    </div>
+
+</div>
+
+
+{% endblock %}

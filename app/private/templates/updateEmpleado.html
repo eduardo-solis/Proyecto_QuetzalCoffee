@@ -1,0 +1,103 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+<div class="container-fluid mt-3 mb-5">
+
+    <div class="text-center mb-3">
+        <h2>Gestión de empleados</h2>
+    </div>
+
+    <div class="row">
+        
+        <!-- Formulario -->
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Actualización del empleado</h5>
+                </div>
+                <div class="card-body">
+                    <form action="/private/empleado/update/{{u.id}}" name="actualizacion_empleado" method="POST" novalidate>
+                        <!-- Token de protección CSRF -->
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        <label class="form-label" for="nombre">Nombre</label>
+                        <input class="form-control" type="text" disabled name="nombre" id="nombre" value="{{u.name}}">
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="primerApellido">Primer Apellido</label>
+                                <input class="form-control" type="text" disabled name="primerApellido" id="primerApellido" value="{{u.primerApellido}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="segundoApellido">Segundo Apellido</label>
+                                <input class="form-control" type="text" disabled name="segundoApellido" id="segundoApellido" value="{{u.segundoApellido}}">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="calle">Calle</label>
+                                <input class="form-control" required type="text" name="calle" id="calle" value="{{u.calle}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="numero">Número</label>
+                                <input class="form-control" required type="number" name="numero" id="numero" value="{{u.numero}}">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="colonia">Colonia</label>
+                                <input class="form-control" required type="text" name="colonia" id="colonia" value="{{u.colonia}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="codigoPostal">Codigo Postal</label>
+                                <input class="form-control" required minlength="5" maxlength="5" type="text" name="codigoPostal" id="codigoPostal" value="{{u.codigoPostal}}">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="sueldo">Sueldo</label>
+                                <input class="form-control" required type="number" name="sueldo" id="sueldo" value="{{u.sueldo}}">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="hrsTrabajo">Horas de Trabajo</label>
+                                <input class="form-control" type="number" required name="hrsTrabajo" id="hrsTrabajo" value="{{u.hrsTrabajo}}">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label" for="telefono">Telefono</label>
+                            <input class="form-control" required minlength="10" maxlength="10" type="text" name="telefono" id="telefono" value="{{u.telefono}}">
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="correo">Correo</label>
+                                <input class="form-control" required type="email" name="correo" id="correo" value="{{u.email}}">
+                            </div>
+                        </div>
+
+                        <label class="form-label">Tipo de empleado</label> <br>
+                        <select name="algo" class="form-select" id="algo">
+                            <option value="2">Empleado</option>
+                            <option value="3">Gerente</option>
+                        </select>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col"> <button class="btn btn-success" type="submit">Guardar</button> </div>
+                                <div class="col"> <button type="reset" class="btn btn-danger">Limpiar</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -7,5 +7,5 @@ flask-marshmallow
 bcrypt
 WTForms
 Flask-WTF
-Flask-Cors
 email-validator
+mysql-connector-python

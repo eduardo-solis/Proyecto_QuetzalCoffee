@@ -1,0 +1,117 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+{% from '_macros.html' import render_field %}
+
+<div class="container" style="margin-top: 60px;">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-danger">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="row">
+
+        <div class="col">
+
+            <div class="card">
+                <div class="card-body">
+
+                    <form action="" name="login" method="POST" novalidate>
+
+                        <!-- Datos del cliente -->
+                        <div>
+                            <h5 class="card-title">Datos del cliente</h5>
+                            <hr>
+                            <br>
+
+                            <div class="row">
+                                <div class="col">
+                                    <!-- Token de protección CSRF -->
+                                    {{form.csrf_token}}
+                                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" name="nombre" disabled class="form-control" id="nombre" value="{{current_user.name}}">
+                                    
+                                </div>
+                                <div class="col">
+                                    <label for="primerApellido" class="form-label">Primer Apellido</label>
+                                    <input type="text" name="primerApellido" disabled class="form-control" id="primerApellido" value="{{current_user.primerApellido}}">
+                                    
+                                </div>
+                                <div class="col">
+                                    <label for="segundoApellido" class="form-label">Segundo Apellido</label>
+                                    <input type="text" name="segundoApellido" disabled class="form-control" id="segundoApellido" value="{{current_user.segundoApellido}}">
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label" for="fechaNac">Fecha de Nacimiento</label>
+                                    <input type="date" class="form-control" disabled name="fechaNac" id="fechaNac" value="{{current_user.fechaNac}}">
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Datos del domicilio -->
+                            <div class="row">
+                                <div class="col">
+                                    <label for="calle" class="form-label">Calle</label>
+                                    <input type="text" name="calle" class="form-control" id="calle" value="{{current_user.calle}}">
+                                    
+                                </div>
+                                <div class="col-2">
+                                    <label for="numero" class="form-label">Numero</label>
+                                    <input type="text" class="form-control" name="numero" id="numero" value="{{current_user.numero}}">
+                                    
+                                </div>
+                                <div class="col">
+                                    <label for="colonia" class="form-label">Colonia</label>
+                                    <input type="text" name="colonia" class="form-control" id="colonia" value="{{current_user.colonia}}">
+
+                                </div>
+                                <div class="col-2">
+                                    <label for="codigoPostal" class="form-label">Codigo Postal</label>
+                                    <input type="text" name="codigoPostal" class="form-control" maxlength="5" id="codigoPostal" value="{{current_user.codigoPostal}}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="telefono" class="form-label">Telefono</label>
+                                    <input type="text" name="telefono" id="telefono"  class="form-control" maxlength="10" value="{{current_user.telefono}}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="correo" class="form-label">Correo</label>
+                                    <input type="email" name="correo" class="form-control" id="correo" value="{{current_user.email}}">
+                                    
+                                </div>
+                                <div class="col">
+                                    <label for="password" class="form-label">Nueva contraseña</label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% endblock %}

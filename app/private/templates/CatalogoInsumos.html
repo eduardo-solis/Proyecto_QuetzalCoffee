@@ -1,0 +1,431 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+
+<div class="container-fluid mt-3 mb-5">
+
+    <div class="text-center mb-3">
+        <h2>Insumos</h2>
+    </div>
+
+    <div class="row">
+        
+        <!-- Formulario -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Agua</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="catalogoInsumos" method="POST" novalidate>
+
+                        <img src="../static/agua.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.agua, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Café</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="cafe" method="POST" novalidate>
+
+                        <img src="../static/cafe.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.cafe, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Vasos</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="vasos" method="POST" novalidate>
+
+                        <img src="../static/vasos.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.vasos, class='form-select')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Tapas</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="tapas" method="POST" novalidate>
+
+                        <img src="../static/tapas.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.tapas, class='form-select')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Popotes</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="popotes" method="POST" novalidate>
+
+                        <img src="../static/popotes.jpg" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.popotes, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Azucar</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Azucar" method="POST" novalidate>
+
+                        <img src="../static/azucar.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.azucar, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Leche</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Leche" method="POST" novalidate>
+
+                        <img src="../static/leche.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.leche, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Canela</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Canela" method="POST" novalidate>
+
+                        <img src="../static/canela.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.canela, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Cacao</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Cacao" method="POST" novalidate>
+
+                        <img src="../static/cacao.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.cacao, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Manzanilla</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Manzanilla" method="POST" novalidate>
+
+                        <img src="../static/manzanilla.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.manzanilla, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Hojas de Naranja</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="HNaranja" method="POST" novalidate>
+                        <img src="../static/HNaranja.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                
+                         {{render_field(form.hNaranja, class='form-control')}}
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Cascara de Naranja</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="CNaranja" method="POST" novalidate>
+
+                        <img src="../static/CNaranja.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.cNaranja, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Menta</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Menta" method="POST" novalidate>
+
+                        <img src="../static/menta.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.menta, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Hojas de Limon</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="HLimon" method="POST" novalidate>
+
+                        <img src="../static/HLimon.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.hLimon, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Limon</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Limon" method="POST" novalidate>
+
+                        <img src="../static/limon.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.limon, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Naranjas</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Naranjas" method="POST" novalidate>
+
+                        <img src="../static/naranjas.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.naranjas, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Zanahorias</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Zanahorias" method="POST" novalidate>
+
+                        <img src="../static/zanahorias.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.zanahorias, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Piña</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Pina" method="POST" novalidate>
+
+                        <img src="../static/pina.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.pina, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">Mango</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="Mango" method="POST" novalidate>
+
+                        <img src="../static/mango.png" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+                        
+                        {{render_field(form.mango, class='form-control')}}
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Tabla -->
+
+        <div class="col-8 table-responsive">
+
+
+            
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

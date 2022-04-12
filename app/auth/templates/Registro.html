@@ -1,0 +1,96 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+{% from '_macros.html' import render_field %}
+
+<div class="container" style="margin-top: 60px;">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-danger">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="row">
+
+        <div class="col">
+
+            <div class="card">
+                <div class="card-body">
+
+                    <form action="" name="registro_cliente" method="POST" novalidate>
+
+                        <!-- Datos del cliente -->
+                        <div>
+                            <h5 class="card-title">Datos del cliente</h5>
+                            <hr>
+                            <br>
+
+                            <div class="row">
+                                <div class="col">
+                                    <!-- Token de protección CSRF -->
+                                    {{form.csrf_token}}
+                                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                                    {{render_field(form.nombre, class='form-control')}}
+                                </div>
+                                <div class="col">
+                                    {{render_field(form.primerApellido, class='form-control')}}
+                                </div>
+                                <div class="col">
+                                    {{render_field(form.segundoApellido, class='form-control')}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    {{render_field(form.fechaNac, class='form-control')}}
+                                </div>
+                            </div>
+
+                            <!-- Datos del domicilio -->
+                            <div class="row">
+                                <div class="col">
+                                    {{render_field(form.calle, class='form-control')}}
+                                </div>
+                                <div class="col-2">
+                                    {{render_field(form.numero, class='form-control')}}
+                                </div>
+                                <div class="col">
+                                    {{render_field(form.colonia, class='form-control')}}
+                                </div>
+                                <div class="col-2">
+                                    {{render_field(form.codigoPostal, class='form-control')}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    {{render_field(form.telefono, class='form-control')}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    {{render_field(form.correo, class='form-control')}}
+                                </div>
+                                <div class="col">
+                                    {{render_field(form.password, class='form-control')}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            {{form.guardar(class='btn btn-success')}}
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% endblock %}

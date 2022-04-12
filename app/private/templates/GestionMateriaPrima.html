@@ -1,0 +1,101 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+
+<div class="container-fluid mt-3 mb-5">
+
+    <div class="text-center mb-3">
+        <h2>Gestión de insumos</h2>
+    </div>
+
+    <div class="row">
+        <!-- Formulario -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Datos de los insumos</h5>
+                </div>
+                <div class="card-body">
+                    <form action="" name="registro_insumos" method="POST" novalidate>
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                        
+                        {{render_field(form.nombre, class='form-control')}}
+                            
+                        {{render_field(form.descripcion, class='form-control')}}
+                            
+                        {{ render_field(form.cantidad, class='form-control')}}
+                            
+                        {{ render_field(form.unidadMedida, class='form-select')}}
+                            
+                        {{ render_field(form.precioCompra, class='form-control')}}
+                            
+                        {{render_field(form.foto, class="form-control")}}
+
+                        <label for="proveedor">Proveedor</label>
+                        <select name="proveedor" class="form-select" id="proveedor">
+                            {% for item in proveedores %}
+                            <option value="{{item.idProveedor}}">{{item.nombre}}</option>
+                            {% endfor %}
+                        </select>
+
+                        <div class="d-flex justify-content-center mt-4">
+
+                            <div class="row">
+                                <div class="col">{{form.guardar(class='btn btn-success')}}</div>
+                                <div class="col"> <button type="reset" class="btn btn-danger">Limpiar</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+            
+        
+        
+  
+
+        <!-- Tabla -->
+        <div class="col-8 table-responsive">
+            <div class="mb-3">
+                <input type="text" id="filtroMateria" placeholder="Buscar" class="form-control" />
+            </div>
+
+            <table class="table" id="tblMateria">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Cantidad</th>
+                    <th>Unidad de Medida</th>
+                    <th>Precio de Compra</th>
+                    <th>Foto</th>
+                </tr>
+                <tbody>
+                    {% for item in lista %}
+                <tr>
+                    <td>
+                        <a class="link-primary" href="{{ url_for('private.update_insumos', id = item.idMateriaPrima) }}">Actualizar</a>
+                        <br>
+                        <a class="link-danger" href="{{ url_for('private.delete_insumos', id = item.idMateriaPrima) }}">Eliminar</a>
+                    </td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.descripcion}}</td>
+                    <td>{{item.cantidad}}</td>
+                    <td>{{item.UnidadMedida}}</td>
+                    <td>{{item.precioCompra}}</td>
+                    <td><img class="img-thumbnail img-fluid" width="50" src="../../static/{{item['foto']}}"  alt="imagen"></td>
+                
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

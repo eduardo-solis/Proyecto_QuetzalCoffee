@@ -1,0 +1,47 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+{% from '_macros.html' import render_field %}
+
+<div class="container-fluid mt-3 mb-5">
+
+    <div class="text-center mb-3">
+        <h2>Insumos</h2>
+    </div>
+
+    <div class="row">
+        {% for item in lista %}
+        <div class="col-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <center><h5 class="card-title">{{item.nombre}} - {{item.cantidad}} {{item.unidadMedida}}</h5></center>
+                </div>
+                <div class="card-body">
+                    <form action="" name="catalogoCliente" method="POST" novalidate>
+
+                        <!-- Token de protección CSRF -->
+                        {{form.csrf_token}}
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        <img src="../static/{{item.foto}}" width="150px" class="img-fluid mx-auto d-block" alt="Imagen Promocional">
+
+                        <h4 class="text-center">Precio: {{item.precioVenta}} MX</h4>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="card-text text-center"><a href="{{ url_for('public.cat_agregar', idProducto = item.idProducto ) }}" class="btn btn-success">Agregar</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+{% from '_macros.html' import render_field %}
+
+<div class="mt-3">
+    <h3 class="mt-3 mb-3 text-center">Carrito de compras</h3>
+    <form action="" name="carritoCompra" novalidate method="POST"></form>
+
+    <div class="row">
+        <div class="col">
+            {% for item in lista_detalle %}
+            <div class="row">
+                
+                <div class="col mb-3">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="card-title">{{item.nombre}}</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="cantidad" class="form-label">Cantidad</label>
+                                    <input type="number" name="cantidad" disabled class="form-control" id="cantidad" value="{{item.cantidad}}">
+                                </div>
+                                <div class="col">
+                                    <label for="precio" class="form-label">Precio</label>
+                                    <input type="number" name="precio" disabled class="form-control" value="{{item.precioVenta}}" id="precio">
+                                </div>
+                            </div>
+                            <label for="subtotal" class="form-label">Subtotal</label>
+                            <input type="number" name="subtotal" disabled class="form-control" id="subtotal" value="{{item.total}}">
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <label for="total" class="form-label">Total</label>
+                    <input type="number" name="total" disabled class="form-control" value="{{venta.totalVenta}}" id="total">
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-center"><a class="btn btn-success" href="">Comprar</a></p>
+                            </div>
+                            <div class="col">
+                                <p class="text-center"><a class="btn btn-danger" href="">Cancelar</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+
+                    <p class="text-center"><a class="link-dark" href="#">Seguir comprando</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+{% from '_macros.html' import render_field %}
+<div class="mt-3">
+    <h3 class="mt-3 mb-3 text-center">Datos de la tarjeta</h3>
+    <form action="" name="pagoCompra" novalidate method="POST"></form>
+    <div class="row">
+        <div class="mx-auto col-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row"> 
+                            {{render_field(form.noTarjeta,class='form-control')}}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{render_field(form.vencimiento,class='form-control')}} 
+                        </div>
+                        <div class="col">
+                            {{render_field(form.cvv,class='form-control')}}
+                        </div>
+                        <div class="col">
+                            {{render_field(form.total,class='form-control ')}}
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="row">
+                            <div class="col">{{form.comprar(class='btn btn-success')}}</div>
+                            <div class="col"> <button type="reset" class="btn btn-danger">Cancelar</button> </div>
+                        </div>
+                    </div>                    
+                                        
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
